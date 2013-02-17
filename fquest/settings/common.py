@@ -120,8 +120,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     # Project applications
-    'person',
-    'event'
+    'fquest.apps.person',
+    'fquest.apps.event'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -152,3 +152,8 @@ LOGGING = {
         },
     }
 }
+
+
+FIXTURE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'fixtures'),
+)
