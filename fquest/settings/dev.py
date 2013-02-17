@@ -4,14 +4,25 @@
 """
 Description: Django settings for development stage.
 """
-__author__ = "Ariel Gerardo Ríos (ariel.gerardo.rios@gmail.com)"
+__author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 
 
 import os
-import common
+from common import *
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'fquest',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
