@@ -51,6 +51,8 @@ class PersonAdmin(admin.ModelAdmin):
         )
     list_display = ['id', 'name', 'sure_name_admin', 'sex', 'born_in',
             'deceased_in', 'parents_admin']
+    list_display_links = ['id', 'name']
+    list_filter = ['family', 'sex']
 
     def parents_admin(self, obj):
         """
@@ -79,7 +81,7 @@ class PersonAdmin(admin.ModelAdmin):
         """
         """
         admin_url = reverse('admin:%s_%s_change' % (obj.family._meta.app_label,
-                obj.family._meta.module_name),  args=[obj.id])
+                obj.family._meta.module_name),  args=[obj.family.id])
         return "<a href='%s'>%s</a>" % (admin_url, obj.family.sure_name)
                                                                            
     sure_name_admin.short_description = _('Sure Name')
