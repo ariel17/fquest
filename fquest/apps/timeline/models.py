@@ -2,23 +2,25 @@
 # -*- coding: utf-8 -*-
 
 """
-Description: Class models for application 'event'.
+Description: Class models for application 'timeline'.
 """
 __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 
 
 from django.db import models
 from django.utils.translation import ugettext as _
+from fquest.apps.family.models import Person
 
 
 class Event(models.Model):
     """
     Describes an occurred event in the past.
     """
-    occurred_in = models.DateTimeField(_("Occurred in"))
+    occurred_in = models.DateTimeField(_('Occurred in'))
     type = models.ForeignKey('Type', related_name=_('Type'))
-    description = models.TextField(_('What happened?'), help_text=_("Explain "
-            "what happened in that event."))
+    persons = models.ManyToManyField(Person)
+    description = models.TextField(_('What happened?'), help_text=_('Explain '
+            'what happened in that event.'))
 
     def __unicode__(self):
         return u"<Event id=%s occured_in='%s' type=%s>" % (repr(self.id),

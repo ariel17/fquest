@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Description: Administration classes for 'event' application models.
+Description: Administration classes for 'timeline' application models.
 """
 __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 
