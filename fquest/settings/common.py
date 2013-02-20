@@ -120,7 +120,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     # Project applications
-    'fquest.apps.person',
+    'fquest.apps.family',
     'fquest.apps.event'
 )
 
