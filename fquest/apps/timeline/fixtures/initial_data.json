@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "timeline.type", "fields": {"name": "Life", "description": "An event related to life."}}, {"pk": 2, "model": "timeline.type", "fields": {"name": "Educational", "description": "An event related to education."}}, {"pk": 3, "model": "timeline.type", "fields": {"name": "Misc", "description": "A miscellaneous event."}}]
