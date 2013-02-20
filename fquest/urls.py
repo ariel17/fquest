@@ -9,13 +9,14 @@ __author__ = "Ariel Gerardo Ríos (ariel.gerardo.rios@gmail.com)"
 
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-admin.autodiscover()
 
+
+admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'fquest.views.home', name='home'),
-    # url(r'^fquest/', include('fquest.foo.urls')),
+    url(r'^fquest/family/', include('fquest.apps.family.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
