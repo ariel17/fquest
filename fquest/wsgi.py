@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """
 WSGI config for fquest project.
 
@@ -13,7 +16,11 @@ middleware here, or combine a Django application with an application of another
 framework.
 
 """
+__author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
+
+
 import os
+
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fquest.settings")
 
@@ -21,8 +28,12 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fquest.settings")
 # file. This includes Django's development server, if the WSGI_APPLICATION
 # setting points here.
 from django.core.wsgi import get_wsgi_application
+
+
 application = get_wsgi_application()
 
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication
 # application = HelloWorldApplication(application)
+
+# vim:ft=python ts=4 tw=80 cc=+1:

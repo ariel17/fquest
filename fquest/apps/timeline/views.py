@@ -5,3 +5,7 @@
 Description: View definitions for application 'event'.
 """
 __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
+
+
+
+# vim:ft=python ts=4 tw=80 cc=+1:

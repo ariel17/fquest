@@ -36,3 +36,5 @@ class Type(models.Model):
 
     def __unicode__(self):
         return u"%s" % self.name
+
+# vim:ft=python ts=4 tw=80 cc=+1:

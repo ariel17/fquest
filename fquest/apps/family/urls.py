@@ -14,3 +14,5 @@ from views import *
 urlpatterns = patterns('fquest.apps.family',
         url(r'^tree/(?P<family_id>\d)/$', 'views.tree', name='family_tree'),
 )
+
+# vim:ft=python ts=4 tw=80 cc=+1:

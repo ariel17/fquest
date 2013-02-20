@@ -23,7 +23,7 @@ class Family(models.Model):
             max_length=NAME_FIELD_MAX_LENGH)
 
     class Meta:
-        verbose_name_plural = "Families"
+        verbose_name_plural = _('Families')
 
     def __unicode__(self):
         return unicode(self.sure_name)
@@ -80,3 +80,5 @@ class Person(models.Model):
         return Person.objects.filter(models.Q(mother__id=self.id) if
                 self.sex == self.SEX_FEMALE_CHOICE else
                 models.Q(father__id=self.id))
+
+# vim:ft=python ts=4 tw=80 cc=+1:        

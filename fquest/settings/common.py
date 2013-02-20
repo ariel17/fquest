@@ -157,3 +157,5 @@ LOGGING = {
 FIXTURE_DIRS = (
     os.path.join(PROJECT_ROOT, 'fixtures'),
 )
+
+# vim:ft=python ts=4 tw=80 cc=+1:

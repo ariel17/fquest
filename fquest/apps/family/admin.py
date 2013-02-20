@@ -95,3 +95,5 @@ class PersonAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Person, PersonAdmin)
+
+# vim:ft=python ts=4 tw=80 cc=+1:

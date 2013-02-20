@@ -53,3 +53,5 @@ INSTALLED_APPS += (
     # Debug toolbar
     'debug_toolbar',
 )
+
+# vim:ft=python ts=4 tw=80 cc=+1:

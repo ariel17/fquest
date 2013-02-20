@@ -18,3 +18,5 @@ def tree(request, family_id):
     family = Person.objects.filter(family__id=family_id)
 
     return render_to_response('tree.html', {'family': family})
+
+# vim:ft=python ts=4 tw=80 cc=+1:
