@@ -17,15 +17,19 @@ class FamilyAdmin(admin.ModelAdmin):
     """
     The administration class for model Family.
     """
-    list_display = ['id', 'sure_name_admin']
+    list_display = ['id', 'sure_name', 'tree_admin']
+    list_display_links = ['id', 'sure_name']
 
-    def sure_name_admin(self, obj):
+    def tree_admin(self, obj):
         """
+        Returns an HTML string containing the link to the family tree
+        represenation.
         """
         tree_url = reverse('family_tree', args=[obj.id])
-        return "<a href='%s'>%s</a>" % (tree_url, obj.sure_name)
+        return "<a href='%s'>%s</a>" % (tree_url, tree_url)
                                                                            
-    sure_name_admin.allow_tags = True
+    tree_admin.allow_tags = True
+    tree_admin.short_description = _('Tree representation URL')
 
 
 admin.site.register(Family, FamilyAdmin)
@@ -74,11 +78,13 @@ class PersonAdmin(admin.ModelAdmin):
 
         return names
 
-    parents_admin.short_description = 'Parents'
+    parents_admin.short_description = _('Parents')
     parents_admin.allow_tags = True
 
     def sure_name_admin(self, obj):
         """
+        Returns a HTML string containing the parents names with links to the
+        'change' page of Person model.
         """
         admin_url = reverse('admin:%s_%s_change' % (obj.family._meta.app_label,
                 obj.family._meta.module_name),  args=[obj.family.id])
