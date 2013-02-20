@@ -9,11 +9,9 @@
     data.addColumn('string', 'Name');
     data.addColumn('string', 'Descendent');
     data.addRows([
-      [{v:'Martin', f:'Mart&iacute;n<div style="color:red; font-style:italic">Hijo</div>'}, ''],
-      [{v:'Martin2', f:'Mart&iacute;n2<div style="color:red; font-style:italic">Hijo</div>'}, ''],
-      [{v:'Ariel', f:'Ariel<div style="color:red; font-style:italic">Pap&aacute;</div>'}, 'Martin'],
-      [{v:'Ariel', f:'Ariel<div style="color:red; font-style:italic">Pap&aacute;</div>'}, 'Martin2'],
-      [{v:'Telma', f:'Telma<div style="color:red; font-style:italic">Mam&aacute;</div>'}, 'Martin'],
+    {% for p in family %}
+        [{v:'{{ p.id }}', f:'{{ p.name }}'}, '{% if p.father %}{{ p.father.id}}{% endif %}'],
+    {% endfor %}
     ]);
     var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
     chart.draw(data, {allowHtml:true});
