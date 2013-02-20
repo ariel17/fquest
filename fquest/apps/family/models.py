@@ -60,6 +60,13 @@ class Person(models.Model):
         return u"%s %s (%s) - %s" % (self.name, self.family.sure_name, self.sex,
                 self.born_in)
 
+    def is_alive(self):
+        """
+        Returns True if the person is alive, based on the 'deceased' field
+        value.
+        """
+        return self.deceased_in is not None
+
     def parents(self):
         """
         Retuns a list of Person related to the current instance as parents.
