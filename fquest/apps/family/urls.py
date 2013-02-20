@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Description: The URL mapping for the 'person' application.
+Description: The URL mapping for the 'family' application.
 """
 __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 
@@ -12,5 +12,5 @@ from views import *
 
 
 urlpatterns = patterns('fquest.apps.family',
-        url(r'^tree/$', 'views.tree', name='tree'),
+        url(r'^tree/(?P<family_id>\d)/$', 'views.tree', name='family_tree'),
 )
