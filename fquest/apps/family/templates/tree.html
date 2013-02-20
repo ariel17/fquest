@@ -8,10 +8,22 @@
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Name');
     data.addColumn('string', 'Descendent');
+    data.addColumn('string', 'Information');
     data.addRows([
-    {% for p in family %}
-        [{v:'{{ p.id }}', f:'{{ p.name }}'}, '{% if p.father %}{{ p.father.id}}{% endif %}'],
-    {% endfor %}
+      {% for p in family %}
+        [{ v:'{{ p.id }}',
+           f:'{{ p.name }}' +
+           '<div style="color:red; font-style:italic">' +
+           'Born in {{ p.born_in }}' +
+           '{% if p.deceased_in %}' +
+           '<br>Deceased in {{ p.deceased_in }}' +
+           '{% endif %}' +
+           '</div>'
+         },
+         '{% if p.father %}{{ p.father.id}}{% endif %}',
+         'test'
+        ],
+      {% endfor %}
     ]);
     var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
     chart.draw(data, {allowHtml:true});
