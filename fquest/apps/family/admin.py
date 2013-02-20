@@ -15,8 +15,17 @@ from models import Family, Person
 
 class FamilyAdmin(admin.ModelAdmin):
     """
+    The administration class for model Family.
     """
-    list_display = ['id', 'sure_name',]
+    list_display = ['id', 'sure_name_admin']
+
+    def sure_name_admin(self, obj):
+        """
+        """
+        tree_url = reverse('family_tree', args=[obj.id])
+        return "<a href='%s'>%s</a>" % (tree_url, obj.sure_name)
+                                                                           
+    sure_name_admin.allow_tags = True
 
 
 admin.site.register(Family, FamilyAdmin)
@@ -41,10 +50,11 @@ class PersonAdmin(admin.ModelAdmin):
             }),
         )
     list_display = ['id', 'name', 'sure_name_admin', 'sex', 'born_in',
-            'deceased_in', 'parent_names']
+            'deceased_in', 'parents_admin']
 
-    def parent_names(self, obj):
+    def parents_admin(self, obj):
         """
+        Returns an HTML string with links to the parent Person objects.
         """
         names = ""
         for p in obj.parents():
@@ -62,8 +72,8 @@ class PersonAdmin(admin.ModelAdmin):
 
         return names
 
-    parent_names.short_description = 'Parents'
-    parent_names.allow_tags = True
+    parents_admin.short_description = 'Parents'
+    parents_admin.allow_tags = True
 
     def sure_name_admin(self, obj):
         """
