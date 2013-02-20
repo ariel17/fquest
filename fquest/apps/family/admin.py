@@ -76,17 +76,4 @@ class PersonAdmin(admin.ModelAdmin):
     sure_name_admin.allow_tags = True
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 admin.site.register(Person, PersonAdmin)
