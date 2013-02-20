@@ -112,7 +112,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
+    # 'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
@@ -121,7 +121,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     # Project applications
     'fquest.apps.family',
-    'fquest.apps.event'
+    'fquest.apps.timeline'
 )
 
 # A sample logging configuration. The only tangible logging
