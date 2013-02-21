@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -27,7 +27,7 @@ class Family(models.Model):
 
     def __unicode__(self):
         return unicode(self.sure_name)
-    
+
 
 class Person(models.Model):
     """
@@ -57,8 +57,8 @@ class Person(models.Model):
             null=True, help_text=_(PARENT_HELP_TEXT))
 
     def __unicode__(self):
-        return u"%s %s (%s) - %s" % (self.name, self.family.sure_name, self.sex,
-                self.born_in)
+        return u"%s %s (%s) - %s" % (self.name, self.family.sure_name,
+                self.sex, self.born_in)
 
     def is_alive(self):
         """
@@ -81,4 +81,4 @@ class Person(models.Model):
                 self.sex == self.SEX_FEMALE_CHOICE else
                 models.Q(father__id=self.id))
 
-# vim:ft=python ts=4 tw=80 cc=+1:        
+# vim:ft=python ts=4 tw=80 cc=+1:

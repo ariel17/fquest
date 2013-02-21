@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -10,6 +10,7 @@ __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 from django.contrib import admin
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
+from fquest.libs.admin.utils import persons2admin
 from models import Family, Person
 
 
@@ -27,7 +28,7 @@ class FamilyAdmin(admin.ModelAdmin):
         """
         tree_url = reverse('family_tree', args=[obj.id])
         return "<a href='%s'>%s</a>" % (tree_url, tree_url)
-                                                                           
+
     tree_admin.allow_tags = True
     tree_admin.short_description = _('Tree representation URL')
 
@@ -62,21 +63,7 @@ class PersonAdmin(admin.ModelAdmin):
         """
         Returns an HTML string with links to the parent Person objects.
         """
-        names = ""
-        for p in obj.parents():
-            if p is None:
-                continue
-
-            if names != "":
-                names += ", "
-
-            admin_url = reverse('admin:%s_%s_change' % (p._meta.app_label,
-                p._meta.module_name),  args=[p.id])
-
-            names += "<a href='%s'>%s %s (%s)</a>" % (admin_url, p.name,
-                    p.family.sure_name, p.sex)
-
-        return names
+        return persons2admin(obj.parents())
 
     parents_admin.short_description = _('Parents')
     parents_admin.allow_tags = True
@@ -89,7 +76,7 @@ class PersonAdmin(admin.ModelAdmin):
         admin_url = reverse('admin:%s_%s_change' % (obj.family._meta.app_label,
                 obj.family._meta.module_name),  args=[obj.family.id])
         return "<a href='%s'>%s</a>" % (admin_url, obj.family.sure_name)
-                                                                           
+
     sure_name_admin.short_description = _('Sure Name')
     sure_name_admin.allow_tags = True
 

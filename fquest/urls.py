@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'fquest.views.home', name='home'),
     url(r'^fquest/family/', include('fquest.apps.family.urls')),
+    url(r'^fquest/timeline/', include('fquest.apps.timeline.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
