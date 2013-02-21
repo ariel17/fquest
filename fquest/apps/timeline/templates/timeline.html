@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+
+{% for e in events %}
+  <p>
+    Date: {{ e.occurred_in }}<br />
+    Persons involved: {% for p in e.persons.all %}{{ p.name }}{% endfor %}<br />
+    Situation: {{ e.description }}
+  </p>
+{% endfor %}
+
+{% endblock %}
