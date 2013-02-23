@@ -5,3 +5,6 @@ local_settings.py
 
 # Currently editing files
 .*.sw*
+
+# media content
+media
