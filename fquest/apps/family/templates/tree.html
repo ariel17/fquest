@@ -10,15 +10,7 @@
     data.addColumn('string', 'Descendent');
     data.addColumn('string', 'Information');
     data.addRows([
-      {% for p in persons %}
-        [{ v:'{{ p.id }}',
-           f:'{{ p.name }}' +
-             {% include "node.html" %}
-         },
-         '{% if p.father %}{{ p.father.id}}{% endif %}',
-         'test'
-        ],
-      {% endfor %}
+      {% include "node.html" %}
     ]);
     var chart = new google.visualization.OrgChart(
         document.getElementById('chart_div'));
