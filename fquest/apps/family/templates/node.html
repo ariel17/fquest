@@ -1,0 +1,7 @@
+'<div style="color:red; font-style:italic">' +
+   {# '<img src="http://goo.gl/M4rbf">' + #}
+   'Born in {{ p.born_in }}' +
+   {% if p.deceased_in %}
+     '<br>Deceased in {{ p.deceased_in }}' +
+   {% endif %}
+'</div>'
