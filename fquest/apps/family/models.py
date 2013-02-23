@@ -35,7 +35,6 @@ class Family(models.Model):
             max_length=NAME_FIELD_MAX_LENGH)
     leadership = models.CharField(_(u'Leadership'),
             max_length=CHOICE_FIELD_MAX_LENGH, choices=LEADERSHIP_CHOICES,
-            blank=True, null=True,
             help_text=_(u"Select how is built the family's leadership; "
                     "patriarchal or matriarchal"))
 
@@ -78,6 +77,18 @@ class Person(models.Model):
     def __unicode__(self):
         return u"%s %s (%s) - %s" % (self.name, self.family.sure_name,
                 self.sex, self.born_in)
+
+    def family_leader(self):
+        """
+        Returns the family leader (mother or father), based on the leadership
+        definition. If it was not defined, then return None.
+        """
+        if self.family.leadership == Family.LEADERSHIP_PATRIARCHAL_CHOICE:
+            return self.father
+        elif self.family.leadership == Family.LEADERSHIP_MATRIARCHAL_CHOICE:
+            return self.mother
+
+        return None
 
     def is_alive(self):
         """
