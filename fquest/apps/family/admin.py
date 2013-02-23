@@ -18,8 +18,8 @@ class FamilyAdmin(admin.ModelAdmin):
     """
     The administration class for model Family.
     """
-    list_display = ['id', 'sure_name', 'tree_admin']
-    list_display_links = ['id', 'sure_name']
+    list_display = ['id', 'sure_name', 'leadership', 'tree_admin']
+    list_display_links = ['id', 'sure_name', 'leadership']
 
     def tree_admin(self, obj):
         """
