@@ -19,7 +19,8 @@ class FamilyAdmin(admin.ModelAdmin):
     The administration class for model Family.
     """
     list_display = ['id', 'sure_name', 'leadership', 'tree_admin']
-    list_display_links = ['id', 'sure_name', 'leadership']
+    list_display_links = ['id', 'sure_name',]
+    list_filter = ['leadership',]
 
     def tree_admin(self, obj):
         """
@@ -27,10 +28,10 @@ class FamilyAdmin(admin.ModelAdmin):
         represenation.
         """
         tree_url = reverse('family_tree', args=[obj.id])
-        return "<a href='%s'>%s</a>" % (tree_url, tree_url)
+        return u"<a href='%s'>%s</a>" % (tree_url, tree_url)
 
     tree_admin.allow_tags = True
-    tree_admin.short_description = _('Tree representation URL')
+    tree_admin.short_description = _(u'Tree representation URL')
 
 
 admin.site.register(Family, FamilyAdmin)
@@ -41,15 +42,15 @@ class PersonAdmin(admin.ModelAdmin):
     The administration class for model Person.
     """
     fieldsets = (
-            (_('About his identification'), {
+            (_(u'About his identification'), {
                 'classes': ('extrapretty',),
                 'fields': ('name', 'family', 'sex')
             }),
-            (_('About his lifetime dates'), {
+            (_(u'About his lifetime dates'), {
                 'classes': ('extrapretty',),
                 'fields': ('born_in', 'deceased_in')
             }),
-            (_('About his parents'), {
+            (_(u'About his parents'), {
                 'classes': ('extrapretty',),
                 'fields': ('mother', 'father')
             }),
@@ -65,7 +66,7 @@ class PersonAdmin(admin.ModelAdmin):
         """
         return persons2admin(obj.parents())
 
-    parents_admin.short_description = _('Parents')
+    parents_admin.short_description = _(u'Parents')
     parents_admin.allow_tags = True
 
     def sure_name_admin(self, obj):
@@ -75,12 +76,13 @@ class PersonAdmin(admin.ModelAdmin):
         """
         admin_url = reverse('admin:%s_%s_change' % (obj.family._meta.app_label,
                 obj.family._meta.module_name),  args=[obj.family.id])
-        return "<a href='%s'>%s</a>" % (admin_url, obj.family.sure_name)
+        return u"<a href='%s'>%s</a>" % (admin_url, obj.family.sure_name)
 
-    sure_name_admin.short_description = _('Sure Name')
+    sure_name_admin.short_description = _(u'Sure Name')
     sure_name_admin.allow_tags = True
 
 
 admin.site.register(Person, PersonAdmin)
+
 
 # vim:ft=python ts=4 tw=80 cc=+1:
