@@ -9,6 +9,7 @@ __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render_to_response
+from django.template import RequestContext
 from models import Family, Person
 
 
@@ -21,7 +22,7 @@ def tree(request, family_id):
     persons = Person.objects.filter(family__id=family_id)
 
     return render_to_response('tree.html', {'family': family,
-        'persons': persons})
+        'persons': persons}, context_instance=RequestContext(request))
 
 
 # vim:ft=python ts=4 tw=80 cc=+1:
