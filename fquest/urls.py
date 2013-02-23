@@ -7,6 +7,7 @@ Description: Exposes the URI mapping through project applications.
 __author__ = "Ariel Gerardo Ríos (ariel.gerardo.rios@gmail.com)"
 
 
+from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
@@ -25,5 +26,13 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+            url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+                'document_root': settings.MEDIA_ROOT,
+            }),
+        )
+
 
 # vim:ft=python ts=4 tw=80 cc=+1:
