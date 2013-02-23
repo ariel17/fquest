@@ -47,7 +47,8 @@ class Family(models.Model):
 
 class Person(models.Model):
     """
-    Represents the basic information about a person.
+    Represents the basic information about a person. It defines aspects as name,
+    sex, born and decease dates, and family belonging.
     """
 
     PARENT_HELP_TEXT = _(u'Select the person that will figure as parent, if '
@@ -62,12 +63,13 @@ class Person(models.Model):
             (SEX_FEMALE_CHOICE, _(u'Female')),
             )
 
-    name = models.CharField(_(u'Name'), max_length=NAME_FIELD_MAX_LENGH)
+    name = models.CharField(_(u"The person's name"),
+            max_length=NAME_FIELD_MAX_LENGH)
     family = models.ForeignKey(u'Family', related_name=_(u'Family'))
     sex = models.CharField(_(u'Sex'), max_length=CHOICE_FIELD_MAX_LENGH,
             choices=SEX_CHOICES)
-    born_in = models.DateTimeField(_(u'Born in'))
-    deceased_in = models.DateTimeField(_(u'Deceased in'), blank=True,
+    born_in = models.DateTimeField(_(u'Born date'))
+    deceased_in = models.DateTimeField(_(u'Decease date'), blank=True,
             null=True)
     mother = models.ForeignKey('Person', related_name=_(u'Mother'),
             blank=True, null=True, help_text=_(PARENT_HELP_TEXT))
@@ -83,7 +85,8 @@ class Person(models.Model):
     def family_leader(self):
         """
         Returns the family leader (mother or father), based on the leadership
-        definition. If it was not defined, then return None.
+        definition on class :model:`family.Family`. If it was not defined, then
+        return ``None``.
         """
         if self.family.leadership == Family.LEADERSHIP_PATRIARCHAL_CHOICE:
             return self.father
@@ -94,8 +97,9 @@ class Person(models.Model):
 
     def is_alive(self):
         """
-        Returns True if the person is alive, based on the 'deceased' field
-        value.
+        Returns ``True`` if the person is alive, based on the ``deceased_in``
+        field value. If ``born_in`` or ``deceased_in`` fields wasn't defined
+        then it returns ``None``.
         """
         if not self.born_in and not self.deceased_in:
             return None
@@ -104,13 +108,15 @@ class Person(models.Model):
 
     def parents(self):
         """
-        Retuns a list of Person related to the current instance as parents.
+        Retuns a list of :model:`family.Person` related to the current instance
+        as progenitors.
         """
         return [self.mother, self.father]
 
     def childrens(self):
         """
-        Returns a list of Person related to the current instance as childrens.
+        Returns a list of :model:`family.Person` related to the current instance
+        as childrens.
         """
         return Person.objects.filter(models.Q(mother__id=self.id) if
                 self.sex == self.SEX_FEMALE_CHOICE else
