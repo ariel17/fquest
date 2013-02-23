@@ -95,7 +95,10 @@ class Person(models.Model):
         Returns True if the person is alive, based on the 'deceased' field
         value.
         """
-        return self.deceased_in is not None
+        if not self.born_in and not self.deceased_in:
+            return None
+
+        return not self.deceased_in
 
     def parents(self):
         """

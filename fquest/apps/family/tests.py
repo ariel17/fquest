@@ -2,14 +2,12 @@
 # -*- coding: utf-8 -*-
 
 """
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
-
-Replace this with more appropriate tests for your application.
+Tests classes for application 'family'.
 """
 __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 
 
+import datetime
 from django.test import TestCase
 from models import Family, Person
 
@@ -44,6 +42,8 @@ class PersonTest(TestCase):
         self.son.father = self.father
         self.son.mother = self.mother
 
+        self.d = datetime.datetime(2011, 10, 1, 15, 26)
+
     def test_family_leader_patriarchal(self):
         """
         Must return the correct family leader based patriarchal configured
@@ -68,12 +68,29 @@ class PersonTest(TestCase):
         self.son.family.leadership = None
         self.assertIsNone(self.son.family_leader())
 
+    def test_is_alive_not_defined(self):
+        """
+        Tests the return value when a Person hasn't defined a born date nor a
+        deceased date.
+        """
+        self.assertIsNone(self.son.is_alive())
 
+    def test_is_alive_not_alive(self):
+        """
+        Tests the return value when a Person is dead, based on the object
+        dates.
+        """
+        self.son.born_in = self.d
+        self.son.deceased_in = self.d
+        self.assertFalse(self.son.is_alive())
 
-
-
-
-
+    def test_is_alive_alive(self):
+        """
+        Tests the return value when a Person is dead, based on the object
+        dates.
+        """
+        self.son.born_in = self.d
+        self.assertTrue(self.son.is_alive())
 
 
 # vim:ft=python ts=4 tw=80 cc=+1:
