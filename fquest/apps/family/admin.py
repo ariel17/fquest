@@ -44,7 +44,7 @@ class PersonAdmin(admin.ModelAdmin):
     fieldsets = (
             (_(u'About his identification'), {
                 'classes': ('extrapretty',),
-                'fields': ('name', 'family', 'sex')
+                'fields': ('name', 'family', 'sex', 'picture')
             }),
             (_(u'About his lifetime dates'), {
                 'classes': ('extrapretty',),

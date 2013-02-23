@@ -69,10 +69,12 @@ class Person(models.Model):
     born_in = models.DateTimeField(_(u'Born in'))
     deceased_in = models.DateTimeField(_(u'Deceased in'), blank=True,
             null=True)
-    mother = models.ForeignKey(u'Person', related_name=_(u'Mother'),
+    mother = models.ForeignKey('Person', related_name=_(u'Mother'),
             blank=True, null=True, help_text=_(PARENT_HELP_TEXT))
-    father = models.ForeignKey(u'Person', related_name=_(u'Father'),
+    father = models.ForeignKey('Person', related_name=_(u'Father'),
             blank=True, null=True, help_text=_(PARENT_HELP_TEXT))
+    picture = models.ImageField(_(u'Picture'), upload_to='pictures',
+            blank=True, null=True)
 
     def __unicode__(self):
         return u"%s %s (%s) - %s" % (self.name, self.family.sure_name,
