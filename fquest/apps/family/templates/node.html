@@ -1,7 +1,15 @@
-'<div style="color:red; font-style:italic">' +
-   {# '<img src="http://goo.gl/M4rbf">' + #}
-   'Born in {{ p.born_in }}' +
-   {% if p.deceased_in %}
-     '<br>Deceased in {{ p.deceased_in }}' +
-   {% endif %}
-'</div>'
+{% for p in persons %}
+  [{ v:'{{ p.id }}',
+     f:'{{ p.name }}' +
+       '<div style="color:red; font-style:italic">' +
+          {# '<img src="http://goo.gl/M4rbf" alt="Photo for {{ p.name }}">' + #}
+          'Born in {{ p.born_in }}' +
+          {% if p.deceased_in %}
+            '<br>Deceased in {{ p.deceased_in }}' +
+          {% endif %}
+       '</div>'
+   },
+   '{% if p.family_leader %}{{ p.family_leader.id}}{% endif %}',
+   'test'
+  ],
+{% endfor %}
