@@ -7,6 +7,7 @@ Description: Admin class for 'person' applications' models.
 __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 
 
+from django.conf import settings
 from django.contrib import admin
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
@@ -56,7 +57,7 @@ class PersonAdmin(admin.ModelAdmin):
             }),
         )
     list_display = ['id', 'name', 'sure_name_admin', 'sex', 'born_in',
-            'deceased_in', 'parents_admin', 'picture']
+            'deceased_in', 'parents_admin', 'picture_admin']
     list_display_links = ['id', 'name']
     list_filter = ['family', 'sex']
 
@@ -80,6 +81,15 @@ class PersonAdmin(admin.ModelAdmin):
 
     sure_name_admin.short_description = _(u'Sure Name')
     sure_name_admin.allow_tags = True
+
+    def picture_admin(self, obj):
+        """
+        """
+        return u"<a href='%s%s'>%s</a>" % (settings.MEDIA_URL, obj.picture,
+                obj.picture)
+    
+    picture_admin.short_description = _(u'Picture')
+    picture_admin.allow_tags = True
 
 
 admin.site.register(Person, PersonAdmin)
