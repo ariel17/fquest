@@ -27,7 +27,7 @@ class FamilyAdmin(admin.ModelAdmin):
         Returns an HTML string containing the link to the family tree
         represenation.
         """
-        tree_url = reverse('family_tree', args=[obj.id])
+        tree_url = reverse('family_tree_complete', args=[obj.id])
         return u"<a href='%s'>%s</a>" % (tree_url, tree_url)
 
     tree_admin.allow_tags = True
@@ -56,7 +56,7 @@ class PersonAdmin(admin.ModelAdmin):
             }),
         )
     list_display = ['id', 'name', 'sure_name_admin', 'sex', 'born_in',
-            'deceased_in', 'parents_admin']
+            'deceased_in', 'parents_admin', 'picture']
     list_display_links = ['id', 'name']
     list_filter = ['family', 'sex']
 
