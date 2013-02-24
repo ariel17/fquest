@@ -12,7 +12,13 @@ from views import *
 
 
 urlpatterns = patterns('fquest.apps.family',
-        url(r'^tree/(?P<family_id>\d)/$', 'views.tree', name='family_tree'),
+
+        url(r'^tree/(?P<family_id>\d)/$', 'views.tree', {'restricted': False},
+            name='family_tree_complete'),
+
+        url(r'^tree/(?P<family_id>\d)/restricted/$', 'views.tree',
+            {'restricted': True}, name='family_tree_restricted'),
 )
+
 
 # vim:ft=python ts=4 tw=80 cc=+1:

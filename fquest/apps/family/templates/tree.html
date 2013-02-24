@@ -10,7 +10,7 @@
     data.addColumn('string', 'Descendent');
     data.addColumn('string', 'Information');
     data.addRows([
-      {% include "node.html" %}
+      {% include nodes_template %}
     ]);
     var chart = new google.visualization.OrgChart(
         document.getElementById('chart_div'));
@@ -20,6 +20,17 @@
 {% endblock %}
 
 {% block body %}
-<h3>Tree representation for family {{ family.sure_name }}</h3>
+<h3>
+  Tree representation for family {{ family.sure_name }}.
+  <a href="{% url admin:family_family_changelist %}">
+    Change family.
+  </a><br>
+  {% if restricted %}
+    <a href="{% url family_tree_complete family.id  %}">Go to a complete family representation.</a>
+  {% else %}
+    <a href="{% url family_tree_restricted family.id  %}">Go to a sure name restricted representation.</a>
+  {% endif %}
+
+</h3>
 <div id='chart_div'></div>
 {% endblock %}

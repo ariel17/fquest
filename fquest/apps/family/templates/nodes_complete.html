@@ -1,0 +1,10 @@
+{% for p in persons %}
+    {% include "node.html" %}
+
+    {% with "nodes_complete.html" as template %}  
+        {% with p.childrens as persons %}  
+            {% include template %}  
+        {% endwith %}
+    {% endwith %}
+
+{% endfor %}
