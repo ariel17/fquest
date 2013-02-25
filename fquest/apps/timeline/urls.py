@@ -12,7 +12,7 @@ from views import *
 
 
 urlpatterns = patterns('fquest.apps.timeline',
-        url(r'^events/$', 'views.events', name='events'),
+        url(r'^simple/$', 'views.events', name='events'),
 )
 
 # vim:ft=python ts=4 tw=80 cc=+1:
