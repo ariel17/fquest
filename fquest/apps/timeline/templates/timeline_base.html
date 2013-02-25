@@ -1,0 +1,20 @@
+<html>
+  <head>
+    {% block head %}{% endblock %}
+  </head>
+
+  <body>
+    <h3>
+      Events representation for family {{ family.sure_name }}.
+      <a href="{% url admin:family_family_changelist %}">
+        Change family.
+      </a><br>
+      Available formats:<br>
+      <ul>
+        <li><a href="{% url events_simple family.id %}">Simple</a></li>
+        <li><a href="#">Other</a></li>
+      </ul>
+    </h3>
+    {% block body %}{% endblock %}
+  </body>
+</html>

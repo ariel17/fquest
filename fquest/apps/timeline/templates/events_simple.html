@@ -1,0 +1,29 @@
+{% extends "timeline_base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+
+<table border="1">
+  <tr>
+    <td>Date</td>
+    <td>Persons involved</td>
+    <td>Situation</td>
+  </tr>
+  {% for e in events %}
+    <tr>
+      <td>{{ e.occurred_in }}</td>
+      <td>
+        {% for p in e.persons.all %}
+          <a href="{% url admin:family_person_change p.id %}">
+            {{ p.name }}
+          </a>
+        {% endfor %}
+      </td>
+      <td>{{ e.description }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

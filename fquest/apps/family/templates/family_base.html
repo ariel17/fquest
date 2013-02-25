@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    {% block head %}{% endblock %}
+  </head>
+
+  <body>
+    <h3>
+      Tree representation for family {{ family.sure_name }}.
+      <a href="{% url admin:family_family_changelist %}">
+        Change family.
+      </a><br>
+    </h3>
+    {% block body %}{% endblock %}
+  </body>
+</html>

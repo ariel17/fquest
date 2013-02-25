@@ -19,7 +19,8 @@ class FamilyAdmin(admin.ModelAdmin):
     """
     The administration class for model Family.
     """
-    list_display = ['id', 'sure_name', 'leadership', 'tree_admin']
+    list_display = ['id', 'sure_name', 'leadership', 'tree_admin',
+            'timeline_admin']
     list_display_links = ['id', 'sure_name',]
     list_filter = ['leadership',]
 
@@ -28,11 +29,22 @@ class FamilyAdmin(admin.ModelAdmin):
         Returns an HTML string containing the link to the family tree
         represenation.
         """
-        tree_url = reverse('family_tree_complete', args=[obj.id])
+        tree_url = reverse('tree_chart_complete', args=[obj.id])
         return u"<a href='%s'>%s</a>" % (tree_url, tree_url)
 
     tree_admin.allow_tags = True
     tree_admin.short_description = _(u'Tree representation URL')
+
+    def timeline_admin(self, obj):
+        """
+        Returns an HTML string containing the link to the family timeline
+        represenation.
+        """
+        tree_url = reverse('events_format', args=[obj.id])
+        return u"<a href='%s'>%s</a>" % (tree_url, tree_url)
+                                                                      
+    timeline_admin.allow_tags = True
+    timeline_admin.short_description = _(u'Events representation URL')
 
 
 admin.site.register(Family, FamilyAdmin)
