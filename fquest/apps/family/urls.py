@@ -13,11 +13,11 @@ from views import *
 
 urlpatterns = patterns('fquest.apps.family',
 
-        url(r'^tree/(?P<family_id>\d)/$', 'views.tree', {'restricted': False},
-            name='family_tree_complete'),
+        url(r'^tree/(?P<family_id>\d)/chart/$', 'views.tree_chart',
+            {'restricted': False}, name='tree_chart_complete'),
 
-        url(r'^tree/(?P<family_id>\d)/restricted/$', 'views.tree',
-            {'restricted': True}, name='family_tree_restricted'),
+        url(r'^tree/(?P<family_id>\d)/chart/restricted/$', 'views.tree_chart',
+            {'restricted': True}, name='tree_chart_restricted'),
 )
 
 
