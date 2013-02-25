@@ -13,9 +13,9 @@ from django.template import RequestContext
 from models import Family, Person
 
 
-def tree(request, family_id, restricted):
+def tree_chart(request, family_id, restricted):
     """
-    Returns the necessary information to create a genealogy tree
+    Returns the necessary information to create a genealogy tree chart
     representation, for an indicated family.
     """
     family = get_object_or_404(Family, id=family_id)
