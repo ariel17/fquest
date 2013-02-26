@@ -1,0 +1,34 @@
+{% extends "family/family_base.html" %}
+
+{% block head %}
+    <title>fquest - Family list</title>
+{% endblock %}
+
+{% block body %}
+
+  <table border="1">
+    <tr>
+      <td>Sure name</td>
+      <td>Leadership</td>
+      <td>Tree representation</td>
+      <td>Events representation</td>
+    </tr>
+
+    {% for f in object_list %}
+      <tr>
+        <td><a href="{% url family_detail f.id %}">{{ f.sure_name }}</a></td>
+        <td>{{ f.get_leadership_display }}</td>
+        <td>
+          <a href="{% url events_format f.id %}">
+            {% url tree_chart_complete f.id %}
+          </a>
+        </td>
+        <td>
+          <a href="{% url events_format f.id %}">
+            {% url events_format f.id %}
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
