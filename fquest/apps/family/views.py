@@ -10,6 +10,7 @@ __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.views.generic import list_detail
 from models import Family, Person
 
 
@@ -29,6 +30,16 @@ def tree_chart(request, family_id, restricted):
     return render_to_response('tree/tree.html', {'family': family,
         'persons': persons, 'nodes_template': node_template,
         'restricted': restricted}, context_instance=RequestContext(request))
+
+
+def family_detail(request, object_id):
+    """
+    Shows a family information details. Complements a generic view with related
+    objects to the indicated family object.
+    """
+    persons = Person.objects.filter(family__id=object_id)
+    return list_detail.object_detail(request, queryset=Family.objects.all(),
+            object_id=object_id, extra_context={'persons': persons,})
 
 
 # vim:ft=python ts=4 tw=80 cc=+1:
