@@ -1,13 +1,11 @@
 [{ v:'{{ p.id }}',
-f:'<a href="{% url admin:family_person_change p.id %}">' +
-    '{{ p.name }} {{ p.family.sure_name }}' +
-  '</a>' +
+f:'<a href="{% url person_detail p.id %}">{{ p.name_complete }}</a>' +
      '<div style="color:red; font-style:italic">' +
         {% if p.picture %}
           '<img src="{{ MEDIA_URL }}{{ p.picture }}" ' +
                   'height="{{ p.picture_height }}" ' +
                   'width="{{ p.picture_width }}" ' +
-                  'alt="Photo for {{ p.name }}"><br>' +
+                  'alt="Photo for {{ p.name_complete }}"><br>' +
         {% endif %}
         'Born in {{ p.born_in }}<br>' +
         {% if p.deceased_in %}

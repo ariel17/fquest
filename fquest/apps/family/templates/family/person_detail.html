@@ -6,16 +6,22 @@
 
 {% block body %}
 
-  {{ object }}
-
-  <table>
+  <a href="{% url family_detail object.family.id %}">Go to family detail</a>
+  &nbsp;
+  <a href="{% url family_list %}">Change family</a>
+  <br><br>
+  <table border="1">
       <tr>
         <td>Name</td>
         <td>{{ object.name }}</td>
       </tr>
       <tr>
         <td>Sure name</td>
-        <td>{{ object.family.sure_name }}</td>
+        <td>
+          <a href="{% url family_detail object.family.id %}">
+            {{ object.family.sure_name }}
+          </a>
+        </td>
       </tr>
       <tr>
         <td>Picture</td>
@@ -39,15 +45,39 @@
       </tr>
       <tr>
         <td>Mother</td>
-        <td>{{ object.mother }}</td>
+        <td>
+          {% if object.mother %}
+            <a href="{% url person_detail object.mother.id %}">
+              {{ object.mother.name_complete }}
+            </a>
+          {% endif %}
+        </td>
       </tr>
       <tr>
         <td>Father</td>
-        <td>{{ object.father }}</td>
+        <td>
+          {% if object.father %}
+            <a href="{% url person_detail object.father.id %}">
+              {{ object.father.name_complete }}
+            </a>
+          {% endif %}
+        </td>
       </tr>
       <tr>
         <td>Brothers</td>
-        <td>{{ object.name }}</td>
+        <td>
+          {% for b in object.brothers %}
+            <a href="{% url person_detail b.id %}">{{ b.name_complete }}</a>
+          {% endfor %}
+        </td>
+      </tr>
+      <tr>
+        <td>Descence</td>
+        <td>
+          {% for d in object.descendence %}
+            <a href="{% url person_detail d.id %}">{{ d.name_complete }}</a>
+          {% endfor %}
+        </td>
       </tr>
   </table>
 {% endblock %}
