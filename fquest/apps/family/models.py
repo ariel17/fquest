@@ -101,6 +101,12 @@ class Person(models.Model):
         return u"%s %s (%s) - %s" % (self.name, self.family.sure_name,
                 self.sex, self.born_in)
 
+    def name_complete(self):
+        """
+        Returns a string with the composition of name and family sure name.
+        """
+        return '%s %s' % (self.name, self.family.sure_name)
+
     def family_leader(self):
         """
         Returns the family leader (mother or father), based on the leadership
@@ -143,10 +149,19 @@ class Person(models.Model):
         """
         return [self.mother, self.father]
 
-    def childrens(self):
+    def brothers(self):
+        """
+        Retuns a list of :model:`family.Person` related to the current instance
+        as brothers/sisters.
+        """
+        return Person.objects.filter(mother=self.mother,
+                father=self.father).exclude(id=self.id).exclude(mother=None,
+                        father=None)
+
+    def descendence(self):
         """
         Returns a list of :model:`family.Person` related to the current
-        instance as childrens.
+        instance as descendence.
         """
         return Person.objects.filter(models.Q(mother__id=self.id) if
                 self.sex == self.SEX_FEMALE_CHOICE else
