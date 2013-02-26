@@ -1,7 +1,7 @@
 {% for p in persons %}
-    {% include "node.html" %}
+    {% include "tree/node.html" %}
 
-    {% with "nodes_complete.html" as template %}  
+    {% with "tree/nodes_complete.html" as template %}  
         {% with p.childrens as persons %}  
             {% include template %}  
         {% endwith %}

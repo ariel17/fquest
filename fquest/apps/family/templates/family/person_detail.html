@@ -1,0 +1,53 @@
+{% extends "family/family_base.html" %}
+
+{% block head %}
+    <title>fquest - Person detail</title>
+{% endblock %}
+
+{% block body %}
+
+  {{ object }}
+
+  <table>
+      <tr>
+        <td>Name</td>
+        <td>{{ object.name }}</td>
+      </tr>
+      <tr>
+        <td>Sure name</td>
+        <td>{{ object.family.sure_name }}</td>
+      </tr>
+      <tr>
+        <td>Picture</td>
+        <td>
+          {% if object.picture %}
+            <img src="{{ MEDIA_URL }}{{ object.picture }}">
+          {% endif %}
+        </td>
+      </tr>
+      <tr>
+        <td>Born in</td>
+        <td>{{ object.born_in }}</td>
+      </tr>
+      <tr>
+        <td>Deceased in</td>
+        <td>
+          {% if object.deceased_in %}
+            {{ object.deceased_in }}
+          {% endif %}
+        </td>
+      </tr>
+      <tr>
+        <td>Mother</td>
+        <td>{{ object.mother }}</td>
+      </tr>
+      <tr>
+        <td>Father</td>
+        <td>{{ object.father }}</td>
+      </tr>
+      <tr>
+        <td>Brothers</td>
+        <td>{{ object.name }}</td>
+      </tr>
+  </table>
+{% endblock %}
