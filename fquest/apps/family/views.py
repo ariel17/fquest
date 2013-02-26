@@ -23,10 +23,10 @@ def tree_chart(request, family_id, restricted):
     persons = Person.objects.filter(family__id=family_id) if restricted else \
             family.roots()
 
-    node_template = 'nodes_%s.html' % ('restricted' if restricted else
+    node_template = 'tree/nodes_%s.html' % ('restricted' if restricted else
             'complete')
 
-    return render_to_response('tree.html', {'family': family,
+    return render_to_response('tree/tree.html', {'family': family,
         'persons': persons, 'nodes_template': node_template,
         'restricted': restricted}, context_instance=RequestContext(request))
 
