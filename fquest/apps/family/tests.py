@@ -21,28 +21,47 @@ class PersonTest(TestCase):
         """
         Initialize needed resources.
         """
+        self.d = datetime.datetime(2011, 10, 1, 15, 26)
+
         self.ff = Family()
         self.ff.sure_name = u"Father family's sure name"
         self.ff.leadership = Family.LEADERSHIP_PATRIARCHAL_CHOICE
+        self.ff.save()
 
         self.father = Person()
+        self.father.sex = Person.SEX_MALE_CHOICE
         self.father.name = u"Father's name"
         self.father.family = self.ff
+        self.father.born_in = self.d
+        self.father.save()
 
         self.mf = Family()
         self.mf.sure_name = u"Mother family's sure name"
         self.mf.leadership = Family.LEADERSHIP_MATRIARCHAL_CHOICE
+        self.mf.save()
 
         self.mother = Person()
+        self.mother.sex = Person.SEX_FEMALE_CHOICE
         self.mother.name = u"Mother's name"
         self.mother.family = self.mf
+        self.mother.born_in = self.d
+        self.mother.save()
 
         self.son = Person()
         self.son.name = u"Son's name"
         self.son.father = self.father
         self.son.mother = self.mother
+        self.son.born_in = self.d
+        self.son.family = self.ff
+        self.son.save()
 
-        self.d = datetime.datetime(2011, 10, 1, 15, 26)
+        self.other_son = Person()
+        self.other_son.name = u"Other son's name"
+        self.other_son.father = self.father
+        self.other_son.mother = self.mother
+        self.other_son.born_in = self.d
+        self.other_son.family = self.ff
+        self.other_son.save()
 
     def test_family_leader_patriarchal(self):
         """
@@ -73,6 +92,7 @@ class PersonTest(TestCase):
         Tests the return value when a Person hasn't defined a born date nor a
         deceased date.
         """
+        self.son.born_in = None
         self.assertIsNone(self.son.is_alive())
 
     def test_is_alive_not_alive(self):
@@ -91,6 +111,54 @@ class PersonTest(TestCase):
         """
         self.son.born_in = self.d
         self.assertTrue(self.son.is_alive())
+
+    def test_brothers(self):
+        """
+        Tests the ``brothers()`` method to validate that returns other
+        :model:`family.Person` instances related by parents, but not the current
+        object.
+        """
+        self.assertTrue(self not in self.son.brothers())
+
+    def test_parents(self):
+        """
+        Tests the ``parents()`` method to validate that returns other
+        :model:`family.Person` instances related to the current one as parents.
+        """
+        parents = self.son.parents()
+        self.assertEqual(2, len(parents))
+        self.assertTrue(self.son.father in parents)
+        self.assertTrue(self.son.mother in parents)
+
+    def test_descendence_invalid(self):
+        """
+        Tests the ``descendence()`` method to validate that raises an exception
+        if current instance has not sex value defined.
+        """
+        self.father.sex = None
+        self.assertRaises(ValueError, self.father.descendence)
+
+    def test_father_descendence(self):
+        """
+        Tests the ``descendence()`` method to validate that returns other
+        :model:`family.Person` instances related to the current one as
+        father's descendence.
+        """
+        d = self.father.descendence()
+        self.assertEqual(2, len(d))
+        self.assertTrue(self.son in d)
+        self.assertTrue(self.other_son in d)
+
+    def test_mother_descendence(self):
+        """
+        Tests the ``descendence()`` method to validate that returns other
+        :model:`family.Person` instances related to the current one as
+        mother's descendence.
+        """
+        d = self.mother.descendence()
+        self.assertEqual(2, len(d))
+        self.assertTrue(self.son in d)
+        self.assertTrue(self.other_son in d)
 
 
 # vim:ft=python ts=4 tw=80 cc=+1:
