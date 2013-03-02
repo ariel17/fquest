@@ -20,6 +20,12 @@ urlpatterns = patterns('',
     url(r'^fquest/family/', include('fquest.apps.family.urls')),
     url(r'^fquest/timeline/', include('fquest.apps.timeline.urls')),
 
+    # Language selection
+    url(r'^i18n/', include('django.conf.urls.i18n')),
+
+    # Accout creation
+    url(r'^accounts/', include('registration.backends.default.urls')),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
