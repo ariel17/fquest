@@ -19,7 +19,7 @@
         <td><a href="{% url family_detail f.id %}">{{ f.sure_name }}</a></td>
         <td>{{ f.get_leadership_display }}</td>
         <td>
-          <a href="{% url events_format f.id %}">
+          <a href="{% url tree_chart_complete f.id %}">
             {% url tree_chart_complete f.id %}
           </a>
         </td>
