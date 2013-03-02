@@ -1,16 +1,16 @@
-<html>
-  <head>
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block basehead %}      
     <script type='text/javascript' src='https://www.google.com/jsapi'></script>
     {% block head %}{% endblock %}
-  </head>
+{% endblock %}
 
-  <body>
+{% block basebody %}
     <h3>
-      Tree representation for family {{ family.sure_name }}.
-      <a href="{% url family_list %}">
-        Change family.
-      </a><br>
+      {% trans "Tree representation for family" %} {{ family.sure_name }}.
+      <a href="{% url family_list %}">{% trans "Change family." %}</a><br>
     </h3>
     {% block body %}{% endblock %}
-  </body>
-</html>
+{% endblock %}

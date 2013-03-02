@@ -1,22 +1,26 @@
-{% extends "family/family_base.html" %}
+{% extends "base.html" %}
 
-{% block head %}
-    <title>fquest - Person detail</title>
+{% load i18n %}
+
+{% block basehead %}
+    <title>fquest - {% trans "Person detail" %}</title>
 {% endblock %}
 
-{% block body %}
+{% block basebody %}
 
-  <a href="{% url family_detail object.family.id %}">Go to family detail</a>
+  <a href="{% url family_detail object.family.id %}">
+    {% trans "Go to family detail" %}
+  </a>
   &nbsp;
-  <a href="{% url family_list %}">Change family</a>
+  <a href="{% url family_list %}">{% trans "Change family" %}</a>
   <br><br>
   <table border="1">
       <tr>
-        <td>Name</td>
+        <td>{% trans "Name" %}</td>
         <td>{{ object.name }}</td>
       </tr>
       <tr>
-        <td>Sure name</td>
+        <td>{% trans "Sure name" %}</td>
         <td>
           <a href="{% url family_detail object.family.id %}">
             {{ object.family.sure_name }}
@@ -24,7 +28,7 @@
         </td>
       </tr>
       <tr>
-        <td>Picture</td>
+        <td>{% trans "Picture" %}</td>
         <td>
           {% if object.picture %}
             <img src="{{ MEDIA_URL }}{{ object.picture }}">
@@ -32,11 +36,11 @@
         </td>
       </tr>
       <tr>
-        <td>Born in</td>
+        <td>{% trans "Born in" %}</td>
         <td>{{ object.born_in }}</td>
       </tr>
       <tr>
-        <td>Deceased in</td>
+        <td>{% trans "Deceased in" %}</td>
         <td>
           {% if object.deceased_in %}
             {{ object.deceased_in }}
@@ -44,7 +48,7 @@
         </td>
       </tr>
       <tr>
-        <td>Mother</td>
+        <td>{% trans "Mother" %}</td>
         <td>
           {% if object.mother %}
             <a href="{% url person_detail object.mother.id %}">
@@ -54,7 +58,7 @@
         </td>
       </tr>
       <tr>
-        <td>Father</td>
+        <td>{% trans "Father" %}</td>
         <td>
           {% if object.father %}
             <a href="{% url person_detail object.father.id %}">
@@ -64,7 +68,7 @@
         </td>
       </tr>
       <tr>
-        <td>Brothers</td>
+        <td>{% trans "Brothers" %}</td>
         <td>
           {% for b in object.brothers %}
             <a href="{% url person_detail b.id %}">{{ b.name_complete }}</a>
@@ -72,7 +76,7 @@
         </td>
       </tr>
       <tr>
-        <td>Descence</td>
+        <td>{% trans "Descence" %}</td>
         <td>
           {% for d in object.descendence %}
             <a href="{% url person_detail d.id %}">{{ d.name_complete }}</a>

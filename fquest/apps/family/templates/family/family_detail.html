@@ -1,26 +1,30 @@
-{% extends "family/family_base.html" %}
+{% extends "base.html" %}
 
-{% block head %}
-    <title>fquest - Family detail</title>
+{% load i18n %}
+
+{% block basehead %}
+    <title>fquest - {% trans "Family detail" %}</title>
 {% endblock %}
 
-{% block body %}
+{% block basebody %}
 
-  <a href="{% url family_list %}">Change family</a>&nbsp;
-  <a href="{% url tree_chart_complete object.id %}">Family tree</a>
+  <a href="{% url family_list %}">{% trans "Change family" %}</a>&nbsp;
+  <a href="{% url tree_chart_complete object.id %}">
+    {% trans "Family tree" %}
+  </a>
   <br><br>
   <table border="1">
       <tr>
-        <td>Sure name</td>
+        <td>{% trans "Sure name" %}</td>
         <td>{{ object.sure_name }}</td>
       </tr>
       <tr>
-        <td>Leadership</td>
+        <td>{% trans "Leadership" %}</td>
         <td>{{ object.get_leadership_display }}</td>
       </tr>
   </table>
   <p>
-    Persons in this family:<br>
+    {% trans "Persons in this family" %}:<br>
     <ul>
       {% for p in persons %}
         <li>

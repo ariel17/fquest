@@ -1,15 +1,20 @@
-{% extends "timeline_base.html" %}
+{% extends "base.html" %}
 
-{% block head %}
+{% load i18n %}
+
+{% block basehead %}
 {% endblock %}
 
-{% block body %}
+{% block basebody %}
+
+<a href="{% url events_format family.id %}">{% trans "Change format." %}</a>
+<a href="{% url family_list %}">{% trans "Change family." %}</a><br>
 
 <table border="1">
   <tr>
-    <td>Date</td>
-    <td>Persons involved</td>
-    <td>Situation</td>
+    <td>{% trans "Date" %}</td>
+    <td>{% trans "Persons involved" %}</td>
+    <td>{% trans "Situation" %}</td>
   </tr>
   {% for e in events %}
     <tr>

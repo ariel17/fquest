@@ -1,3 +1,5 @@
+{% load i18n %}
+
 [{ v:'{{ p.id }}',
 f:'<a href="{% url person_detail p.id %}">{{ p.name_complete }}</a>' +
      '<div style="color:red; font-style:italic">' +
@@ -7,9 +9,9 @@ f:'<a href="{% url person_detail p.id %}">{{ p.name_complete }}</a>' +
                   'width="{{ p.picture_width }}" ' +
                   'alt="Photo for {{ p.name_complete }}"><br>' +
         {% endif %}
-        'Born in {{ p.born_in }}<br>' +
+        '{% trans "Born in" %} {{ p.born_in }}<br>' +
         {% if p.deceased_in %}
-          'Deceased in {{ p.deceased_in }}<br>' +
+            '{% trans "Deceased in" %} {{ p.deceased_in }}<br>' +
         {% endif %}
      '</div>'
  },

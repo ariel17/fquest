@@ -1,20 +1,17 @@
-<html>
-  <head>
-    {% block head %}{% endblock %}
-  </head>
+{% extends "base.html" %}
 
-  <body>
-    <h3>
-      Events representation for family {{ family.sure_name }}.
-      <a href="{% url admin:family_family_changelist %}">
-        Change family.
-      </a><br>
-      Available formats:<br>
-      <ul>
-        <li><a href="{% url events_simple family.id %}">Simple</a></li>
-        <li><a href="#">Other</a></li>
-      </ul>
-    </h3>
-    {% block body %}{% endblock %}
-  </body>
-</html>
+{% load i18n %}
+
+{% block basebody %}
+  <h3>
+    {% trans "Events representation for family" %} {{ family.sure_name }}.
+    <a href="{% url family_list %}">{% trans "Change family." %}</a><br>
+    {% trans "Available formats:" %}<br>
+    <ul>
+      <li>
+        <a href="{% url events_simple family.id %}">{% trans "Simple" %}</a>
+      </li>
+      <li><a href="#">{% trans "Other" %}</a></li>
+    </ul>
+  </h3>
+{% endblock %}

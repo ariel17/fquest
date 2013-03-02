@@ -1,17 +1,19 @@
-{% extends "family/family_base.html" %}
+{% extends "base.html" %}
 
-{% block head %}
-    <title>fquest - Family list</title>
+{% load i18n %}
+
+{% block basehead %}
+    <title>fquest - {% trans "Family list" %}</title>
 {% endblock %}
 
-{% block body %}
+{% block basebody %}
 
   <table border="1">
     <tr>
-      <td>Sure name</td>
-      <td>Leadership</td>
-      <td>Tree representation</td>
-      <td>Events representation</td>
+      <td>{% trans "Sure name" %}</td>
+      <td>{% trans "Leadership" %}</td>
+      <td>{% trans "Tree representation" %}</td>
+      <td>{% trans "Events representation" %}</td>
     </tr>
 
     {% for f in object_list %}

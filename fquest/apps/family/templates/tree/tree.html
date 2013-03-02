@@ -1,5 +1,7 @@
 {% extends "tree/tree_base.html" %}
 
+{% load i18n %}
+
 {% block head %}
 <script type='text/javascript'>
   google.load('visualization', '1', {packages:['orgchart']});
@@ -23,11 +25,11 @@
 <h3>
   {% if restricted %}
     <a href="{% url tree_chart_complete family.id  %}">
-        Go to a complete family representation.
+        {% trans "Go to a complete family representation." %}
     </a>
   {% else %}
     <a href="{% url tree_chart_restricted family.id  %}">
-        Go to a sure name restricted representation.
+        {% trans "Go to a sure name restricted representation." %}
     </a>
   {% endif %}
 
