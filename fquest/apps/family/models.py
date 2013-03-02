@@ -163,6 +163,10 @@ class Person(models.Model):
         Returns a list of :model:`family.Person` related to the current
         instance as descendence.
         """
+        if not self.sex:
+            raise ValueError("Cannot determine sex value for current "
+                    "instance.")
+
         return Person.objects.filter(models.Q(mother__id=self.id) if
                 self.sex == self.SEX_FEMALE_CHOICE else
                 models.Q(father__id=self.id))
