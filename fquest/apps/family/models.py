@@ -93,7 +93,7 @@ class Person(models.Model):
     picture_width = models.PositiveIntegerField(_(u'Width'),
             default=PICTURE_DEFAULT_WIDTH, blank=True, null=True,
             help_text=_(u"The person's picture width, in pixel scale."))
-    picture_height = models.PositiveIntegerField(_(u'height'),
+    picture_height = models.PositiveIntegerField(_(u'Height'),
             default=PICTURE_DEFAULT_height, blank=True, null=True,
             help_text=_(u"The person's picture height, in pixel scale."))
 
