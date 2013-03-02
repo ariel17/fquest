@@ -9,8 +9,9 @@ __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render_to_response
-from models import Event
+from django.template import RequestContext
 from fquest.apps.family.models import Family
+from models import Event
 
 
 def events(request, family_id, template):
@@ -28,7 +29,8 @@ def events(request, family_id, template):
     if p_to:
         events = events.filter(occurred_in__lt=p_to)
 
-    return render_to_response(template, {'family': family, 'events': events})
+    return render_to_response(template, {'family': family, 'events': events},
+            context_instance=RequestContext(request))
 
 
 # vim:ft=python ts=4 tw=80 cc=+1:
