@@ -6,5 +6,8 @@ local_settings.py
 # Currently editing files
 .*.sw*
 
-# media content
+# Media content
 media
+
+# Internationalization compiled messages
+*.mo
