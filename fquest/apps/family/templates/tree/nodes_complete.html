@@ -2,9 +2,10 @@
     {% include "tree/node.html" %}
 
     {% with "tree/nodes_complete.html" as template %}  
-        {% with p.childrens as persons %}  
-            {% include template %}  
+        {% with p.descendence as persons %}  
+            {% with p.family as family %}
+                {% include template %}  
+            {% endwith %}
         {% endwith %}
     {% endwith %}
-
 {% endfor %}
