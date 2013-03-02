@@ -1,0 +1,208 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-02 00:48-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: admin.py:36
+msgid "Tree representation URL"
+msgstr "URL representación de árbol"
+
+#: admin.py:47
+msgid "Events representation URL"
+msgstr "URL representación de eventos"
+
+#: admin.py:58
+msgid "About his identification"
+msgstr "Acerca de su identificación"
+
+#: admin.py:62
+msgid "About his lifetime dates"
+msgstr "Acerca de las fechas de su vida"
+
+#: admin.py:66
+msgid "About his parents"
+msgstr "Acerca de sus padres"
+
+#: admin.py:82
+msgid "Parents"
+msgstr "Padres"
+
+#: admin.py:94 models.py:34
+msgid "Sure Name"
+msgstr "Apellido"
+
+#: admin.py:103 models.py:90 templates/family/person_detail.html:31
+msgid "Picture"
+msgstr "Foto"
+
+#: models.py:30
+msgid "Patriarchal"
+msgstr "Patriarcal"
+
+#: models.py:31
+msgid "Matriarchal"
+msgstr "Matriarcal"
+
+#: models.py:36 templates/family/family_detail.html:22
+#: templates/family/family_list.html:14
+msgid "Leadership"
+msgstr "Liderazgo"
+
+#: models.py:38
+msgid "Select how is built the family's leadership; patriarchal or matriarchal"
+msgstr "Seleccione cómo está formado el liderazgo de la familia; patriarcal o matriarcal"
+
+#: models.py:42
+msgid "Families"
+msgstr "Familias"
+
+#: models.py:62
+msgid "Select the person that will figure as parent, if it exists in database."
+msgstr "Seleccione la persona que figurará como padre, si éste existe en la base de datos."
+
+#: models.py:70
+msgid "Male"
+msgstr "Masculino"
+
+#: models.py:71
+msgid "Female"
+msgstr "Femenino"
+
+#: models.py:78
+msgid "The person's name"
+msgstr "El nombre de la persona"
+
+#: models.py:80
+msgid "Family"
+msgstr "Familia"
+
+#: models.py:81
+msgid "Sex"
+msgstr "Sexo"
+
+#: models.py:83
+msgid "Born date"
+msgstr "Fecha de nacimiento"
+
+#: models.py:84
+msgid "Decease date"
+msgstr "Fecha de fallecimiento"
+
+#: models.py:86 templates/family/person_detail.html:51
+msgid "Mother"
+msgstr "Madre"
+
+#: models.py:88 templates/family/person_detail.html:61
+msgid "Father"
+msgstr "Padre"
+
+#: models.py:93
+msgid "Width"
+msgstr "Anchura"
+
+#: models.py:95
+msgid "The person's picture width, in pixel scale."
+msgstr "La anchura de la foto de la persona, en escala píxel."
+
+#: models.py:96
+msgid "Height"
+msgstr "Altura"
+
+#: models.py:98
+msgid "The person's picture height, in pixel scale."
+msgstr "La altura de la foto de la persona, en escala píxel."
+
+#: templates/family/family_detail.html:6
+msgid "Family detail"
+msgstr "Detalles de la familia"
+
+#: templates/family/family_detail.html:11
+#: templates/family/person_detail.html:15
+msgid "Change family"
+msgstr "Cambiar familia"
+
+#: templates/family/family_detail.html:13
+msgid "Family tree"
+msgstr "Árbol de familia"
+
+#: templates/family/family_detail.html:18 templates/family/family_list.html:13
+#: templates/family/person_detail.html:23
+msgid "Sure name"
+msgstr "Apellido"
+
+#: templates/family/family_detail.html:27
+msgid "Persons in this family"
+msgstr "Personas en esta familia"
+
+#: templates/family/family_list.html:6
+msgid "Family list"
+msgstr "Listado de familia"
+
+#: templates/family/family_list.html:15
+msgid "Tree representation"
+msgstr "Representación en árbol"
+
+#: templates/family/family_list.html:16
+msgid "Events representation"
+msgstr "Representación de eventos"
+
+#: templates/family/person_detail.html:6
+msgid "Person detail"
+msgstr "Detalles de la persona"
+
+#: templates/family/person_detail.html:12
+msgid "Go to family detail"
+msgstr "Ir a detalles de la familia"
+
+#: templates/family/person_detail.html:19
+msgid "Name"
+msgstr "Nombre"
+
+#: templates/family/person_detail.html:39 templates/tree/node.html:12
+msgid "Born in"
+msgstr "Nacido en"
+
+#: templates/family/person_detail.html:43 templates/tree/node.html:14
+msgid "Deceased in"
+msgstr "Fallecido en"
+
+#: templates/family/person_detail.html:71
+msgid "Brothers"
+msgstr "Hermanos"
+
+#: templates/family/person_detail.html:79
+msgid "Descence"
+msgstr "Descendencia"
+
+#: templates/tree/tree.html:28
+msgid "Go to a complete family representation."
+msgstr "Ir a una representación completa de la familia."
+
+#: templates/tree/tree.html:32
+msgid "Go to a sure name restricted representation."
+msgstr "Ir a una representación restringida por el apellido."
+
+#: templates/tree/tree_base.html:12
+#, fuzzy
+msgid "Tree representation for family"
+msgstr "Representación en árbol para la familia"
+
+#: templates/tree/tree_base.html:13
+#, fuzzy
+msgid "Change family."
+msgstr "Cambiar familia"

@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-02 01:09-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: admin.py:31 templates/events_simple.html:16
+msgid "Persons involved"
+msgstr "Personas involucradas"
+
+#: models.py:19
+msgid "Occurred in"
+msgstr "Ocurrido en"
+
+#: models.py:20
+msgid "Type"
+msgstr "Tipo"
+
+#: models.py:22
+msgid "What happened?"
+msgstr "¿Qué sucedió?"
+
+#: models.py:22
+msgid "Explain what happened in that event."
+msgstr "Explique qué sucedió en ese evento."
+
+#: models.py:34
+msgid "Name"
+msgstr "Nombre"
+
+#: models.py:35
+msgid "Description"
+msgstr "Descripción"
+
+#: templates/events_simple.html:10
+#, fuzzy
+msgid "Change format."
+msgstr "Cambiar formato."
+
+#: templates/events_simple.html:11 templates/timeline_base.html:8
+msgid "Change family."
+msgstr "Cambiar familia."
+
+#: templates/events_simple.html:15
+msgid "Date"
+msgstr "Fecha"
+
+#: templates/events_simple.html:17
+msgid "Situation"
+msgstr "Situación"
+
+#: templates/timeline_base.html:7
+msgid "Events representation for family"
+msgstr "Representación de eventos para la familia"
+
+#: templates/timeline_base.html:9
+msgid "Available formats:"
+msgstr "Formatos disponibles:"
+
+#: templates/timeline_base.html:12
+msgid "Simple"
+msgstr "Simple"
+
+#: templates/timeline_base.html:14
+msgid "Other"
+msgstr "Otro"
