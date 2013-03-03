@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-02 00:48-0300\n"
+"POT-Creation-Date: 2013-03-03 11:36-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,7 +46,7 @@ msgstr "Padres"
 msgid "Sure Name"
 msgstr "Apellido"
 
-#: admin.py:103 models.py:90 templates/family/person_detail.html:31
+#: admin.py:103 models.py:90 templates/family/person_detail.html:32
 msgid "Picture"
 msgstr "Foto"
 
@@ -58,14 +58,16 @@ msgstr "Patriarcal"
 msgid "Matriarchal"
 msgstr "Matriarcal"
 
-#: models.py:36 templates/family/family_detail.html:22
-#: templates/family/family_list.html:14
+#: models.py:36 templates/family/family_detail.html:24
+#: templates/family/family_list.html:16
 msgid "Leadership"
 msgstr "Liderazgo"
 
 #: models.py:38
 msgid "Select how is built the family's leadership; patriarchal or matriarchal"
-msgstr "Seleccione cómo está formado el liderazgo de la familia; patriarcal o matriarcal"
+msgstr ""
+"Seleccione cómo está formado el liderazgo de la familia; patriarcal o "
+"matriarcal"
 
 #: models.py:42
 msgid "Families"
@@ -73,7 +75,9 @@ msgstr "Familias"
 
 #: models.py:62
 msgid "Select the person that will figure as parent, if it exists in database."
-msgstr "Seleccione la persona que figurará como padre, si éste existe en la base de datos."
+msgstr ""
+"Seleccione la persona que figurará como padre, si éste existe en la base de "
+"datos."
 
 #: models.py:70
 msgid "Male"
@@ -103,11 +107,11 @@ msgstr "Fecha de nacimiento"
 msgid "Decease date"
 msgstr "Fecha de fallecimiento"
 
-#: models.py:86 templates/family/person_detail.html:51
+#: models.py:86 templates/family/person_detail.html:52
 msgid "Mother"
 msgstr "Madre"
 
-#: models.py:88 templates/family/person_detail.html:61
+#: models.py:88 templates/family/person_detail.html:62
 msgid "Father"
 msgstr "Padre"
 
@@ -132,20 +136,28 @@ msgid "Family detail"
 msgstr "Detalles de la familia"
 
 #: templates/family/family_detail.html:11
-#: templates/family/person_detail.html:15
+msgid "Add other family"
+msgstr "Agregar otra familia"
+
+#: templates/family/family_detail.html:12
+msgid "Edit this family"
+msgstr "Editar esta familia"
+
+#: templates/family/family_detail.html:13
+#: templates/family/person_detail.html:16
 msgid "Change family"
 msgstr "Cambiar familia"
 
-#: templates/family/family_detail.html:13
+#: templates/family/family_detail.html:15
 msgid "Family tree"
 msgstr "Árbol de familia"
 
-#: templates/family/family_detail.html:18 templates/family/family_list.html:13
-#: templates/family/person_detail.html:23
+#: templates/family/family_detail.html:20 templates/family/family_list.html:15
+#: templates/family/person_detail.html:24
 msgid "Sure name"
 msgstr "Apellido"
 
-#: templates/family/family_detail.html:27
+#: templates/family/family_detail.html:29
 msgid "Persons in this family"
 msgstr "Personas en esta familia"
 
@@ -153,11 +165,15 @@ msgstr "Personas en esta familia"
 msgid "Family list"
 msgstr "Listado de familia"
 
-#: templates/family/family_list.html:15
+#: templates/family/family_list.html:11
+msgid "Add a family"
+msgstr "Agregar una familia"
+
+#: templates/family/family_list.html:17
 msgid "Tree representation"
 msgstr "Representación en árbol"
 
-#: templates/family/family_list.html:16
+#: templates/family/family_list.html:18
 msgid "Events representation"
 msgstr "Representación de eventos"
 
@@ -165,27 +181,35 @@ msgstr "Representación de eventos"
 msgid "Person detail"
 msgstr "Detalles de la persona"
 
+#: templates/family/person_detail.html:11
+msgid "Add other person"
+msgstr "Agregar otra persona"
+
 #: templates/family/person_detail.html:12
+msgid "Edit this person"
+msgstr "Editar esta persona"
+
+#: templates/family/person_detail.html:14
 msgid "Go to family detail"
 msgstr "Ir a detalles de la familia"
 
-#: templates/family/person_detail.html:19
+#: templates/family/person_detail.html:20
 msgid "Name"
 msgstr "Nombre"
 
-#: templates/family/person_detail.html:39 templates/tree/node.html:12
+#: templates/family/person_detail.html:40 templates/tree/node.html:12
 msgid "Born in"
 msgstr "Nacido en"
 
-#: templates/family/person_detail.html:43 templates/tree/node.html:14
+#: templates/family/person_detail.html:44 templates/tree/node.html:14
 msgid "Deceased in"
 msgstr "Fallecido en"
 
-#: templates/family/person_detail.html:71
+#: templates/family/person_detail.html:72
 msgid "Brothers"
 msgstr "Hermanos"
 
-#: templates/family/person_detail.html:79
+#: templates/family/person_detail.html:80
 msgid "Descence"
 msgstr "Descendencia"
 
@@ -201,6 +225,6 @@ msgstr "Ir a una representación restringida por el apellido."
 msgid "Tree representation for family"
 msgstr "Representación en árbol para la familia"
 
-#: templates/tree/tree_base.html:13
+#: templates/tree/tree_base.html:14
 msgid "Change family."
 msgstr "Cambiar familia"

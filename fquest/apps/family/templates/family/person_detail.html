@@ -8,10 +8,11 @@
 
 {% block basebody %}
 
+  <a href="#">{% trans "Add other person" %}</a>&nbsp;
+  <a href="#">{% trans "Edit this person" %}</a>&nbsp;
   <a href="{% url family_detail object.family.id %}">
     {% trans "Go to family detail" %}
-  </a>
-  &nbsp;
+  </a>&nbsp;
   <a href="{% url family_list %}">{% trans "Change family" %}</a>
   <br><br>
   <table border="1">
