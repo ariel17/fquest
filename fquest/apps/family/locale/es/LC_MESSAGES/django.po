@@ -198,11 +198,9 @@ msgid "Go to a sure name restricted representation."
 msgstr "Ir a una representación restringida por el apellido."
 
 #: templates/tree/tree_base.html:12
-#, fuzzy
 msgid "Tree representation for family"
 msgstr "Representación en árbol para la familia"
 
 #: templates/tree/tree_base.html:13
-#, fuzzy
 msgid "Change family."
 msgstr "Cambiar familia"
