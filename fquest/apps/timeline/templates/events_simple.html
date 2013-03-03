@@ -8,6 +8,8 @@
 {% block basebody %}
 
 <a href="{% url events_format family.id %}">{% trans "Change format." %}</a>
+&nbsp;
+<a href="#">{% trans "Add event" %}</a>&nbsp;
 <a href="{% url family_list %}">{% trans "Change family." %}</a><br>
 
 <table border="1">
@@ -18,7 +20,7 @@
   </tr>
   {% for e in events %}
     <tr>
-      <td>{{ e.occurred_in }}</td>
+      <td><a href="#">{{ e.occurred_in }}</a></td>
       <td>
         {% for p in e.persons.all %}
           <a href="{% url admin:family_person_change p.id %}">
