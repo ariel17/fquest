@@ -8,6 +8,7 @@ __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 
 
 from django.conf.urls import patterns, url
+from django.views.generic import create_update
 from django.views.generic import list_detail
 from models import Family, Person
 from views import tree_chart, family_detail
@@ -22,6 +23,9 @@ family_info = {
 }
 
 urlpatterns = patterns('fquest.apps.family',
+
+        url(r'^family/add/$', create_update.create_object, {'model': Family},
+            name='family_add'),
 
         url(r'^family/$', list_detail.object_list, family_info,
             name='family_list'),

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block basehead %}
+    <title>fquest - {% trans "Add a Family" %}</title>
+{% endblock %}
+
+{% block basebody %}
+
+<form action="" method="post">{% csrf_token %}
+  {{ form }}
+  <input type="submit" value="create" />
+</form>
+
+{% endblock %}
