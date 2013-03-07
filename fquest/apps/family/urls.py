@@ -22,10 +22,12 @@ family_info = {
     'queryset': Family.objects.all(),
 }
 
+
+
 urlpatterns = patterns('fquest.apps.family',
 
-        url(r'^family/add/$', create_update.create_object, {'model': Family},
-            name='family_add'),
+        url(r'^family/add/$', create_update.create_object, {'model': Family,
+            'template_name': 'form.html', 'extra_context': {'model': Family}}, name='family_add'),
 
         url(r'^family/$', list_detail.object_list, family_info,
             name='family_list'),
