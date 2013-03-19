@@ -33,6 +33,7 @@ class Family(models.Model):
 
     sure_name = models.CharField(_(u'Sure Name'),
             max_length=NAME_FIELD_MAX_LENGH)
+
     leadership = models.CharField(_(u'Leadership'),
             max_length=CHOICE_FIELD_MAX_LENGH, choices=LEADERSHIP_CHOICES,
             help_text=_(u"Select how is built the family's leadership; "
@@ -77,22 +78,31 @@ class Person(models.Model):
 
     name = models.CharField(_(u"The person's name"),
             max_length=NAME_FIELD_MAX_LENGH)
+    
     family = models.ForeignKey(u'Family', related_name=_(u'Family'))
+    
     sex = models.CharField(_(u'Sex'), max_length=CHOICE_FIELD_MAX_LENGH,
             choices=SEX_CHOICES)
+    
     born_in = models.DateTimeField(_(u'Born date'))
+    
     deceased_in = models.DateTimeField(_(u'Decease date'), blank=True,
             null=True)
+    
     mother = models.ForeignKey('Person', related_name=_(u'Mother'),
             blank=True, null=True, help_text=_(PARENT_HELP_TEXT))
+    
     father = models.ForeignKey('Person', related_name=_(u'Father'),
             blank=True, null=True, help_text=_(PARENT_HELP_TEXT))
+    
     picture = models.ImageField(_(u'Picture'), upload_to='pictures',
             height_field='picture_height', width_field='picture_width',
             blank=True, null=True)
+    
     picture_width = models.PositiveIntegerField(_(u'Width'),
             default=PICTURE_DEFAULT_WIDTH, blank=True, null=True,
             help_text=_(u"The person's picture width, in pixel scale."))
+
     picture_height = models.PositiveIntegerField(_(u'Height'),
             default=PICTURE_DEFAULT_height, blank=True, null=True,
             help_text=_(u"The person's picture height, in pixel scale."))
