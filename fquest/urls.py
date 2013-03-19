@@ -10,6 +10,7 @@ __author__ = "Ariel Gerardo Ríos (ariel.gerardo.rios@gmail.com)"
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.contrib.auth.views import login, logout_then_login
 
 
 admin.autodiscover()
@@ -22,6 +23,12 @@ urlpatterns = patterns('',
 
     # Language selection
     url(r'^i18n/', include('django.conf.urls.i18n')),
+
+    # User session
+    url(r'^accounts/login/$', login, {'template_name':
+        'registration/login.html'}),
+
+    url(r'^accounts/logout/$', logout_then_login),
 
     # Accout creation
     url(r'^accounts/', include('registration.backends.default.urls')),
