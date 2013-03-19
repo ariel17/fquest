@@ -3,8 +3,10 @@
 *.pyc
 local_settings.py
 
-# Currently editing files
+# Currently editing files, IDE, libs
 .*.sw*
+.project
+build
 
 # Media content
 media
