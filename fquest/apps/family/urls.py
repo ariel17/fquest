@@ -9,58 +9,49 @@ __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 
 from django.conf.urls import patterns, url
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import create_update
-from django.views.generic import list_detail
+from django.views.generic.base import TemplateView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.list import ListView
 from models import Family, Person
-from views import tree_chart, family_detail
+from views import tree_chart
 
-
-person_info = {
-    'queryset': Person.objects.all(),
-}
-
-family_info = {
-    'queryset': Family.objects.all(),
-}
 
 urlpatterns = patterns('fquest.apps.family',
 
+        # Index
+
+        url(r'^$', TemplateView.as_view(template_name='family_index.html'),
+            name='family_index'),
+
         # Family URL
 
-        url(r'^family/$', list_detail.object_list, family_info,
-            name='family_list'),
+        url(r'^family/$', ListView.as_view(model=Family), name='family_list'),
 
-        url(r'^family/(?P<object_id>\d+)/$', family_detail,
+        url(r'^family/(?P<pk>\d+)/$', DetailView.as_view(model=Family),
             name='family_detail'),
 
-        url(r'^family/add/$', create_update.create_object, {'model': Family,
-            'template_name': 'form.html', 'extra_context': {'model': Family},
-            'post_save_redirect': reverse_lazy('family_list')},
+        url(r'^family/add/$', CreateView.as_view(model=Family,
+            template_name='form.html', success_url=reverse_lazy('family_list')),
             name='family_add'),
 
-        url(r'^family/edit/(?P<object_id>\d+)/$', create_update.update_object,
-            {'model': Family, 'template_name': 'form.html',
-                'extra_context': {'model': Family},
-                'post_save_redirect': reverse_lazy('family_list')},
-            name='family_edit'),
+        url(r'^family/edit/(?P<pk>\d+)/$', UpdateView.as_view(
+            model=Family, template_name='form.html',
+            success_url=reverse_lazy('family_list')), name='family_edit'),
 
         # Person URL
 
-        url(r'^person/$', list_detail.object_list, person_info,
-            name='person_list'),
+        url(r'^person/$', ListView.as_view(model=Person), name='person_list'),
 
-        url(r'^person/(?P<object_id>\d+)/$', list_detail.object_detail,
-            person_info, name='person_detail'),
+        url(r'^person/(?P<pk>\d+)/$', DetailView.as_view(model=Person),
+            name='person_detail'),
 
-        url(r'^person/add/$', create_update.create_object, {'model': Person,
-            'template_name': 'form.html',
-            'post_save_redirect': reverse_lazy('person_list')},
+        url(r'^person/add/$', CreateView.as_view(model=Person,
+            template_name='form.html', success_url=reverse_lazy('person_list')),
             name='person_add'),
 
-        url(r'^person/edit/(?P<object_id>\d+)/$', create_update.update_object,
-            {'model': Person, 'template_name': 'form.html',
-                'extra_context': {'model': Person},
-                'post_save_redirect': reverse_lazy('person_list')},
+        url(r'^person/edit/(?P<pk>\d+)/$', UpdateView.as_view(model=Person,
+            template_name='form.html', success_url=reverse_lazy('person_list')),
             name='person_edit'),
 
         # Tree URL
