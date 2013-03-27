@@ -14,7 +14,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from models import Family, Person
-from views import tree_chart
+from views import TreeChartView
 
 
 urlpatterns = patterns('fquest.apps.family',
@@ -56,11 +56,18 @@ urlpatterns = patterns('fquest.apps.family',
 
         # Tree URL
 
-        url(r'^tree/(?P<family_id>\d+)/chart/$', tree_chart,
-            {'restricted': False}, name='tree_chart_complete'),
+        # url(r'^tree/(?P<family_id>\d+)/chart/$', tree_chart,
+        #     {'restricted': False}, name='tree_chart_complete'),
 
-        url(r'^tree/(?P<family_id>\d+)/chart/restricted/$', tree_chart,
-            {'restricted': True}, name='tree_chart_restricted'),
+        url(r'^tree/(?P<family_id>\d+)/chart/$', TreeChartView.as_view(
+            restricted=False), name='tree_chart_complete'),
+
+        # url(r'^tree/(?P<family_id>\d+)/chart/restricted/$', tree_chart,
+        #     {'restricted': True}, name='tree_chart_restricted'),
+
+        url(r'^tree/(?P<family_id>\d+)/chart/restricted/$',
+            TreeChartView.as_view(restricted=True),
+            name='tree_chart_restricted'),
 )
 
 # vim:ft=python ts=4 tw=80 cc=+1:
