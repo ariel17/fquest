@@ -32,8 +32,8 @@ urlpatterns = patterns('fquest.apps.family',
             name='family_detail'),
 
         url(r'^family/add/$', CreateView.as_view(model=Family,
-            template_name='form.html', success_url=reverse_lazy('family_list')),
-            name='family_add'),
+            template_name='form.html',
+            success_url=reverse_lazy('family_list')), name='family_add'),
 
         url(r'^family/edit/(?P<pk>\d+)/$', UpdateView.as_view(
             model=Family, template_name='form.html',
@@ -47,12 +47,12 @@ urlpatterns = patterns('fquest.apps.family',
             name='person_detail'),
 
         url(r'^person/add/$', CreateView.as_view(model=Person,
-            template_name='form.html', success_url=reverse_lazy('person_list')),
-            name='person_add'),
+            template_name='form.html',
+            success_url=reverse_lazy('person_list')), name='person_add'),
 
         url(r'^person/edit/(?P<pk>\d+)/$', UpdateView.as_view(model=Person,
-            template_name='form.html', success_url=reverse_lazy('person_list')),
-            name='person_edit'),
+            template_name='form.html',
+            success_url=reverse_lazy('person_list')), name='person_edit'),
 
         # Tree URL
 
@@ -69,5 +69,6 @@ urlpatterns = patterns('fquest.apps.family',
             TreeChartView.as_view(restricted=True),
             name='tree_chart_restricted'),
 )
+
 
 # vim:ft=python ts=4 tw=80 cc=+1:

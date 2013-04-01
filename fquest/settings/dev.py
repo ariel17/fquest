@@ -75,7 +75,7 @@ DEBUG_TOOLBAR_CONFIG = {
         # 'EXTRA_SIGNALS': ['myproject.signals.MySignal'],
         'HIDE_DJANGO_SQL': False,
         # 'TAG': 'div',
-        'ENABLE_STACKTRACES' : True,
+        'ENABLE_STACKTRACES': True,
 }
 
 ACCOUNT_ACTIVATION_DAYS = 1

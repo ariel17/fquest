@@ -115,8 +115,8 @@ class PersonTest(TestCase):
     def test_brothers(self):
         """
         Tests the ``brothers()`` method to validate that returns other
-        :model:`family.Person` instances related by parents, but not the current
-        object.
+        :model:`family.Person` instances related by parents, but not the
+        current object.
         """
         self.assertTrue(self not in self.son.brothers())
 

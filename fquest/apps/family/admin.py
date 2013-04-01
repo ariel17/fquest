@@ -21,8 +21,8 @@ class FamilyAdmin(admin.ModelAdmin):
     """
     list_display = ['id', 'sure_name', 'leadership', 'tree_admin',
             'timeline_admin']
-    list_display_links = ['id', 'sure_name',]
-    list_filter = ['leadership',]
+    list_display_links = ['id', 'sure_name', ]
+    list_filter = ['leadership', ]
 
     def tree_admin(self, obj):
         """
@@ -42,7 +42,7 @@ class FamilyAdmin(admin.ModelAdmin):
         """
         tree_url = reverse('events_format', args=[obj.id])
         return u"<a href='%s'>%s</a>" % (tree_url, tree_url)
-                                                                      
+
     timeline_admin.allow_tags = True
     timeline_admin.short_description = _(u'Events representation URL')
 
@@ -99,7 +99,7 @@ class PersonAdmin(admin.ModelAdmin):
         """
         return u"<a href='%s%s'>%s</a>" % (settings.MEDIA_URL, obj.picture,
                 obj.picture)
-    
+
     picture_admin.short_description = _(u'Picture')
     picture_admin.allow_tags = True
 

@@ -43,4 +43,5 @@ class TypeAdmin(admin.ModelAdmin):
 
 admin.site.register(Type, TypeAdmin)
 
+
 # vim:ft=python ts=4 tw=80 cc=+1:

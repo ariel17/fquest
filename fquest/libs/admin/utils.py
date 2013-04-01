@@ -30,4 +30,5 @@ def persons2admin(persons):
 
     return names
 
+
 # vim:ft=python ts=4 tw=80 cc=+1:

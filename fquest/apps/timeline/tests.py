@@ -19,4 +19,5 @@ class SimpleTest(TestCase):
         """
         self.assertEqual(1 + 1, 2)
 
+
 # vim:ft=python ts=4 tw=80 cc=+1:
