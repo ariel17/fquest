@@ -23,7 +23,7 @@
       <td><a href="#">{{ e.occurred_in }}</a></td>
       <td>
         {% for p in e.persons.all %}
-          <a href="{% url admin:family_person_change p.id %}">
+          <a href="{% url person_detail p.id %}">
             {{ p.name }}
           </a>
         {% endfor %}
