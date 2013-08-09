@@ -11,9 +11,9 @@ from django.db import models
 from django.utils.translation import ugettext as _
 
 
-NAME_FIELD_MAX_LENGH = 50
+NAME_FIELD_MAX_LENGTH = 50
 
-CHOICE_FIELD_MAX_LENGH = 2
+CHOICE_FIELD_MAX_LENGTH = 2
 
 
 class Family(models.Model):
@@ -32,10 +32,10 @@ class Family(models.Model):
             )
 
     sure_name = models.CharField(_(u'Sure Name'),
-            max_length=NAME_FIELD_MAX_LENGH)
+            max_length=NAME_FIELD_MAX_LENGTH)
 
     leadership = models.CharField(_(u'Leadership'),
-            max_length=CHOICE_FIELD_MAX_LENGH, choices=LEADERSHIP_CHOICES,
+            max_length=CHOICE_FIELD_MAX_LENGTH, choices=LEADERSHIP_CHOICES,
             help_text=_(u"Select how is built the family's leadership; "
                     "patriarchal or matriarchal"))
 
@@ -77,11 +77,11 @@ class Person(models.Model):
     PICTURE_DEFAULT_WIDTH = 33
 
     name = models.CharField(_(u"The person's name"),
-            max_length=NAME_FIELD_MAX_LENGH)
+            max_length=NAME_FIELD_MAX_LENGTH)
 
     family = models.ForeignKey(u'Family', related_name=_(u'Family'))
 
-    sex = models.CharField(_(u'Sex'), max_length=CHOICE_FIELD_MAX_LENGH,
+    sex = models.CharField(_(u'Sex'), max_length=CHOICE_FIELD_MAX_LENGTH,
             choices=SEX_CHOICES)
 
     born_in = models.DateTimeField(_(u'Born date'))
